@@ -1,4 +1,3 @@
-```
 func search(nums []int, target int) int {//leetcode 704
     left,right:=0,len(nums) //[) just like slice[left:right]
     for left<right{
@@ -13,4 +12,4 @@ func search(nums []int, target int) int {//leetcode 704
     }
     return -1
 }
-```
+
