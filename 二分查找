@@ -1,0 +1,14 @@
+func search(nums []int, target int) int {//leetcode 704
+    left,right:=0,len(nums) //[) just like slice[left:right]
+    for left<right{
+        mid:=(left+right)/2
+        if nums[mid]>target{
+            right=mid
+        }else if nums[mid]<target{
+            left=mid+1
+        }else{
+            return mid
+        }
+    }
+    return -1
+}
