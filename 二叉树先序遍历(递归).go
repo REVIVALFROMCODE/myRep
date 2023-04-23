@@ -7,10 +7,9 @@
  * }
  *
  *[]int is beyond function,as global value.Here is the trick , no need to pass the slice.
- *If you make slice as parameter but no return is totally wrong.
- *Nothing will append in slice.
- *The reason why is you pass the struct by value,eventhough the base array pass by ptr,length and capacity which is integer type never update.
- *The value is writen in memory in same base array but len and cap dont knonw that.
+ *If you make slice as parameter but no return is totally wrong.Nothing will append in slice.
+ *The reason why is you pass the struct by value,even though the underlying array pass by ptr but length and capacity which is integer type never update if no return.
+ *The value is writen in memory in same underlying array successfully whether return or not but len and cap dont knonw that.
  *leetcode 0144 preorderTraversal,0094 inorderTraversal,0145 postorderTraversal
  */
 func preorderTraversal(root *TreeNode) []int {
