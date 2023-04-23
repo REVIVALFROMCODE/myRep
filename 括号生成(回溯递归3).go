@@ -1,3 +1,4 @@
+//递归3之 利用递归实现回溯,用于要枚举或排列组合所有可能解的问题.从零出发,递归调用出当前情况的所有可能分支作为尝试.当前题目可提前判断再递归实际上是较为特殊的.直观的方法是递归再剪枝.
 func generateParenthesis(n int) []string { //leetcode 22
 	res := make([]string, 0)
 	var bt func(s string, left, right int)
