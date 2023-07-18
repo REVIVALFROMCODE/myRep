@@ -4,7 +4,16 @@ import (
 	"fmt"
 	"time"
 )
+func main3() {
+	switch fmt.Println("h"); {
+	case 1 < 0: //semicolon excepted,not {}parentheses
+		fmt.Println("e")
 
+	case 1 > 0:
+		fmt.Println("h")
+
+	}
+}
 func help() int {
 	switch a, b := 0, 1; {
 	case a < b:
