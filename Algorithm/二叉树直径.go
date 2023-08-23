@@ -17,6 +17,8 @@ func diameterOfBinaryTree(root *TreeNode) int {
 		return 1 + max(left, right)
 	}
 	helper(root)
+	//自底到达顶端root后,helper return的max+1在递归时是核心,但在调用入口这里不被需要,
+	//而主函数return的是记录的Max,这也是使用helper的目的,奇哉妙也.
 	return Max
 }
 func max(a, b int) int {
