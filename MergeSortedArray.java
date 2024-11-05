@@ -14,3 +14,20 @@ class Solution {
         }
     }
 }
+
+//solution 2
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1, j = n - 1, k = m + n - 1;
+        // 1 2 3 0 0 0, 2 5 6
+        // i         k      j
+        while (i >= 0 && j >= 0) {// merge from the end
+            if (nums1[i] > nums2[j])
+                nums1[k--] = nums1[i--];// basical compare choose bigger one
+            else
+                nums1[k--] = nums2[j--];
+        }
+        while (j >= 0) //put rest of nums2, because of if there are rest of nums2, tail of nums1 must bigger than head of nums2
+            nums1[k--] = nums2[j--];
+    }
+}
