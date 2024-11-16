@@ -11,7 +11,9 @@
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dummy = new ListNode(0), current=dummy;//list1.val>list2.val?list2.val:list1.val is wrong... dummy used for saving first one.
-
+        /*
+        merge common part
+         */
         while(list1!=null && list2!=null){
             if(list1.val<list2.val){
                 current.next=list1;
@@ -23,6 +25,9 @@ class Solution {
             current=current.next;
             
         }
+        /*
+        link rest
+        */
         current.next= list1!=null? list1: list2;
 
         return dummy.next;
