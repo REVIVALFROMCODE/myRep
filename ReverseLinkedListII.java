@@ -18,7 +18,7 @@ class Solution {
          * }
          * But for reverse LinkedList, steps are put left.next to the first node before
          * left,
-         * then move left.
+         * then move forward.
          * e.g.
          * 1,2,3,4,5 left=2,right=5,
          * put 3 behind 1,
