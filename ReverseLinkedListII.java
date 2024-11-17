@@ -56,3 +56,15 @@ class Solution {
         return dummy.next;
     }
 }
+
+/*
+Copilot Explanation
+You want to reverse the nodes between the left and right positions in the linked list, where 1 <= left <= right <= n (n being the length of the list).
+
+Steps
+Dummy Node: Create a dummy node to handle edge cases more easily, such as reversing from the head of the list.
+
+Find the Left Node: Traverse the list to find the node just before the left position (prev).
+
+Reverse the Sublist: Use a pointer (start) at the left position and another (then) to iterate through the sublist to perform the reversal by changing pointers.
+*/
