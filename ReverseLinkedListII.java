@@ -1,48 +1,58 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-       
-        if(head==null) return null;
-
-        ListNode dummy = new ListNode(0);
-        dummy.next=head;
-        ListNode prev=dummy;
-         //find left one
-
-         for(int i=0;i<left-1;i++){
-            prev=prev.next;
-         }
-
-         ListNode start=prev.next, then = start.next;
-
-         for(int i=0; i< right-left ; i++){
-            //put then behind prev, prev.next is then, not swap start and then.
-            // prev -> start -> then -> then.next
-            // prev -> prev.next -> start -> then to prev->then->prev.next->start
-            // 1,2,3,4 to 1,3,2,4 first round
-            // 1,       3,          2,      4       to  1,  4,      3,  2
-            // prev,    prev.next,  start,  then        
-            start.next=then.next;
-            then.next=prev.next; 
-            prev.next=then;
+        /*
+         * to find the left one :
+         * ListNode current=head;
+         * for(int i =0; i < left-1; i++){
+         * current=current.next;
+         * }
+         * But for reverse LinkedList, steps are put left.next to the first node before
+         * left,
+         * then move left.
+         * e.g.
+         * 1,2,3,4,5 left=2,right=5,
+         * put 3 behind 1,
+         * 1,3,2,4,5
+         * put 4 behind 1,
+         * 1,4,3,2,5
+         * put 5 behind 1.
+         * 1,5,4,3,2
+         * /*
+         * To find the first node before left
+         */
+        ListNode dummy = new ListNode(0, head);
+        if (head == null)
+            return dummy.next;
+        ListNode prev = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            prev = prev.next;
+        }
+        ListNode start = prev.next;
+        ListNode then  = start.next;
+        for(int i=0; i< right-left; i++){
+            /*
+            put then to prev.next
+            */
+            start.next = then.next;//save next node
+            then.next = prev.next;//save node after prev
+            prev.next = then;//put it
             
             
 
-            //update pointer for next iterate
-            //prev -> then -> start ->start.next
-             
+            //pointer start already move forwarded by swap.
             then=start.next;
-         }
+        }
 
-         return dummy.next;
+        return dummy.next;
     }
 }
