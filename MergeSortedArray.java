@@ -31,3 +31,25 @@ class Solution {
             nums1[k--] = nums2[j--];
     }
 }
+
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        merge1(nums1,m,nums2,n);//delegate to well-known sort model
+    }
+        private void merge1(int[] nums1, int m, int[] nums2, int n){
+        //nums1 1,2,3
+        //nums2 2,5,6
+        int i =0; int j=0; int k=0; int sz = m+n;
+        int res[] = new int[sz];
+        while(k<sz){
+            if(i==m) res[k++]=nums2[j++];
+            else if(j==n) res[k++]=nums1[i++];
+            else if(nums1[i]<nums2[j]) res[k++]=nums1[i++];
+            else res[k++]=nums2[j++];
+        }
+        for (i = 0; i < sz; i++) { nums1[i] = res[i];} 
+        //return reference and re-assign only lost original address... So we copy step-by-step.
+        
+    }
+}
