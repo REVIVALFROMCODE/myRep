@@ -54,3 +54,27 @@ class Solution {//530
 
 
 //Solution 2
+class Solution {
+    private TreeNode prev = null; // Integer used to store null so we used
+    private int min = Integer.MAX_VALUE;
+
+    public int getMinimumDifference(TreeNode root) {
+        inorderTraversal(root);
+        return min;
+    }
+
+    private void inorderTraversal(TreeNode root) {
+        if (root == null)
+            return;
+        inorderTraversal(root.left);
+        // Calculate the difference with the previous node
+        if (prev != null) {
+            int val = root.val - prev.val; // No need for Math.abs, as root.val >= previous in BST inorder
+            if (min > val)
+                min = val;
+        }
+        // Update the previous value to current node's value
+        prev = root;
+        inorderTraversal(root.right);
+    }
+}
