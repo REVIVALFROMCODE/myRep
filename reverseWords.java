@@ -1,5 +1,7 @@
 class Solution {
     public String reverseWords(String s) {
+// \s matches any whitespace character 
+// + matches the previous token between one and unlimited times, as many times as possible
         String words[]=s.trim().split("\s+");
 
         StringBuilder sb = new StringBuilder();
