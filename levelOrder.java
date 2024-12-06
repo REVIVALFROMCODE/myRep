@@ -91,3 +91,31 @@ class Solution {
         }
     }
 }
+
+
+
+//Solution 3: Recursive call with parameters: int level
+public class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        levelOrder(root, 0, result);
+        return result;
+    }
+
+    private void levelOrder(TreeNode node, int level, List<List<Integer>> result) {
+        if (node == null) return;
+
+        // Ensure the list is large enough to hold the current level
+        if (result.size() <= level) {
+            result.add(new ArrayList<>());
+        }
+
+        // Add the current node value to the correct level
+        result.get(level).add(node.val);
+
+        // Recursive calls for left and right children
+        levelOrder(node.left, level + 1, result);
+        levelOrder(node.right, level + 1, result);
+    }
+}
+
