@@ -1,14 +1,17 @@
-public class Solution {
+
+class Solution {
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean isValidBST(TreeNode node, long min, long max) {
-        if (node == null) return true;
+    public boolean isValidBST(TreeNode root, long min, long max) {
+        if (root == null)
+            return true;
 
-        if (node.val <= min || node.val >= max) return false;
-
-        return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
+        if (root.val <= min || root.val >= max)
+            return false;// if violate BST, false;
+        return isValidBST(root.left, min, root.val)// forward boundary
+                && isValidBST(root.right, root.val, max);
     }
 }
 /*
