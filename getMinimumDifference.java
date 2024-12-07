@@ -78,3 +78,27 @@ class Solution {
         inorderTraversal(root.right);
     }
 }
+
+
+//Solution3
+class Solution {
+    public int getMinimumDifference(TreeNode root) {
+        int preMin[] = new int[2];
+        preMin[0] = -1;
+        preMin[1] = Integer.MAX_VALUE;
+        inorderTraver(root,preMin);
+        return preMin[1]; 
+    }
+    public void inorderTraver(TreeNode cur, int[] preMin){
+        if(cur==null) return;
+
+        inorderTraver(cur.left, preMin);
+
+        if(preMin[0]>=0){
+            if(cur.val - preMin[0]< preMin[1]) preMin[1] = cur.val - preMin[0];
+        }
+            preMin[0] = cur.val;
+
+        inorderTraver(cur.right, preMin);
+    }
+}
