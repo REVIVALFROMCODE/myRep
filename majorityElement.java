@@ -68,41 +68,18 @@ class Solution
 }
 
 
-//HashMap
+//Solution 3 HashMap
 class Solution
 {
-    // Step 1: Recursive method to count element frequencies in the array
-    public static void getMejority(int[] arr, int si, int ei, HashMap<Integer, Integer> map)
-    {
-        // Step 2: Base case - When the subarray has one element, update its count
-        if (si >= ei)
-        {
-            map.put(arr[si], map.getOrDefault(arr[si], 0) + 1);
-            return;
-        }
-
-        // Step 3: Find the middle index to divide the array into two halves
-        int mid = si + (ei - si) / 2;
-
-        // Step 4: Recursively count frequencies in the left and right halves
-        getMejority(arr, si, mid, map); // Process left half
-        getMejority(arr, mid + 1, ei, map); // Process right half
-    }
-
-    // Step 5: Method to find the majority element
     public int majorityElement(int[] nums)
     {
-        // Step 6: Create a map to store frequencies of elements
         HashMap<Integer, Integer> map = new HashMap<>();
         
-        // Step 7: Call the recursive function to fill the map with frequencies
         getMejority(nums, 0, nums.length - 1, map);
         
-        // Step 8: Initialize variables to track the element with the maximum frequency
         int maxKey = -1;
         int maxFrequency = Integer.MIN_VALUE;
 
-        // Step 9: Iterate through the map to find the element with the highest frequency
         for (Map.Entry<Integer, Integer> entry : map.entrySet())
         {
             if (entry.getValue() > maxFrequency)
@@ -111,14 +88,22 @@ class Solution
                 maxKey = entry.getKey();
             }
         }
+        return maxKey; 
+    }
 
-        // Step 10: If the highest frequency is more than half the array length, return that element
-        if (maxFrequency > nums.length / 2)
+    public static void getMejority(int[] arr, int si, int ei, HashMap<Integer, Integer> map)
+    {
+        if (si >= ei)
         {
-            return maxKey; // Majority element found
+            map.put(arr[si], map.getOrDefault(arr[si], 0) + 1);
+            return;
         }
 
-        // Step 11: If no majority element exists, return -1
-        return -1; // No majority element exists
+        int mid = si + (ei - si) / 2;
+
+        getMejority(arr, si, mid, map); 
+        getMejority(arr, mid + 1, ei, map); 
     }
+
+    
 }
