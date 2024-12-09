@@ -104,6 +104,27 @@ class Solution
         getMejority(arr, si, mid, map); 
         getMejority(arr, mid + 1, ei, map); 
     }
+}
 
-    
+//Solution 4 Simplest way to utilize hash map
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        
+        int majorityElement = nums[0];
+        int maxCount = 0;
+        
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxCount = entry.getValue();
+                majorityElement = entry.getKey();
+            }
+        }
+        
+        return majorityElement;
+    }
 }
