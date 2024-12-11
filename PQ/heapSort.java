@@ -1,6 +1,6 @@
 public static void heapSort(Comparable[] a){
   int N = a .length;
-  //sink nodes except leaf node, as a result, we heaplify given array
+  //Sinking the first N/2 elements in reverse order (elements other than leaf nodes)， as a result, we heaplify given array
   for(int k =N/2; k>=1; k--){
     sink(a,k,N);//iterate by k, N is boundry
   }
