@@ -1,4 +1,4 @@
-`
+``
 /*
 Solution brute force, following cannot avoid duplicate as expected.
 Input: nums = [-1,0,1,2,-1,-4], Out:
@@ -24,9 +24,9 @@ class Solution {
         return res;
     }
 }
-`
+``
 
-`
+``
 /*
 Available brute force, By using a Set of lists, we avoid adding duplicate triplets. Each triplet is *sorted* before adding to the set to ensure the order is consistent.
 */
@@ -50,9 +50,9 @@ public class Solution {
     }
 
 }
-`
+``
 
-`
+``
 /*
 Thrid try brute force, self implement insertion sort. Still Time Limit Exceeded...
 */
@@ -97,4 +97,4 @@ public class Solution {
         a[j] = temp;
     }
 }
-`
+``
