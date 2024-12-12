@@ -24,7 +24,9 @@ class Solution {
         return res;
     }
 }
+`
 
+`
 /*
 Available brute force, By using a Set of lists, we avoid adding duplicate triplets. Each triplet is *sorted* before adding to the set to ensure the order is consistent.
 */
@@ -48,12 +50,12 @@ public class Solution {
     }
 
 }
+`
 
+`
 /*
 Thrid try brute force, self implement insertion sort. Still Time Limit Exceeded...
 */
-
-
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> res = new HashSet<>(); // To avoid duplicates
