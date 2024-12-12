@@ -26,6 +26,7 @@ class Solution {
 
 /*
 Available brute force, By using a Set of lists, we avoid adding duplicate triplets. Each triplet is *sorted* before adding to the set to ensure the order is consistent.
+Set<List<Integer>> will consider [0,1,-1],[-1,0,1] as no dup/ But after sorting, will consider [-1,0,1] as dup.
 */
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
