@@ -1,3 +1,8 @@
+/*
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
+*/
+
 class Solution {//std
     public boolean canConstruct(String ransomNote, String magazine) {
         HashMap<Character, Integer> letter = new HashMap<>();
