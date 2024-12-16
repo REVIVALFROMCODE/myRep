@@ -10,7 +10,7 @@ class Solution {
          */
         // HashMap : nums[0] -> indice0
 
-        HashMap<Integer, Integer> m = new HashMap<>();
+        Map<Integer, Integer> m = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (m.containsKey(nums[i])) {
                 int res = i - m.get(nums[i]);
