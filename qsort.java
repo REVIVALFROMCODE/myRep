@@ -1,4 +1,4 @@
-void qosrt(int [] a){
+void qsort(int [] a){
 	qsort(a,0,a.length-1);
 }
 void qsort(int[] a, int lo, int hi){
