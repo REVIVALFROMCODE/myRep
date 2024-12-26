@@ -6,15 +6,21 @@ public void LSDsort(String[] a, int W) {//fixed length W
         for (int d = W - 1; d >= 0; d--) {
             int[] count = new int[R + 1];
             for (int i = 0; i < N; i++) {//a[i].charAt(d): character at index d of the string a[i].
+                //a[i]: each string, .charAt(d): d character, +1: next one, count[]++
                 count[a[i].charAt(d) + 1]++;
             }
             for (int r = 0; r < R; r++) {
+                //compute cumulates count[r+1] and count[r]
                 count[r + 1] += count[r];
             }
             for (int i = 0; i < N; i++) {
+                // move data
+                //a[i] is a String rather character, in this loop we change order of strings depending on count.
+                // after above two loops, count[a[i].charAt(d)] is index of string, i-> a[i].charAt(d)
                 aux[count[a[i].charAt(d)]++] = a[i];
             }
             for (int i = 0; i < N; i++) {
+                //copy back
                 a[i] = aux[i];
             }
         }
