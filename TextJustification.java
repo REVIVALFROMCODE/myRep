@@ -8,47 +8,47 @@ class Solution {
        "justification.  "
     ]
     */
-    public List<String> fullJustify(String[] words, int maxWidth) {
+        public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> result = new ArrayList<>();
-        int n =words.length;
-        int index=0;
+        int n = words.length;
+        int index = 0;
 
-        while(index<n){
-            int totalChars = words[index].length();
-            int last=index+1;
+        while (index < n) {// for each string
+            int totalChars = words[index].length(); // initiate accumulate with length of current string
+            int last = index + 1; // index of last, start from next string
 
-            while(last<n){//find each line's last index of string
-                if(totalChars+1+words[last].length()>maxWidth) break;
-                totalChars+=1+words[last].length(); //+space
+            while (last < n) {// find last index can be inserted in one line
+                if (totalChars + 1 + words[last].length() > maxWidth) break; // calculate length
+                totalChars += 1 + words[last].length();
                 last++;
-            }
-            StringBuilder sb=new StringBuilder();
-            int wordCount=last-index;
-            int spaceCount=maxWidth-totalChars;
+            }//after this loop, we remain last and total.
 
-            if(last==n || wordCount==1){//left justification
-                for(int i=index; i<last; i++){
+            StringBuilder sb = new StringBuilder();
+            int wordCount = last - index;// with minimal value: one
+            int spaceCount = maxWidth - totalChars;
+
+            //build String
+            //case one: only one word left
+            //case two: multiple words
+            if (last == n || wordCount == 1) {//last line
+                for (int i = index; i < last; i++) {
                     sb.append(words[i]);
-                    if(i<last-1) sb.append(' '); // insert space except last one
+                    if (i < last - 1) sb.append(' ');
                 }
-                while(sb.length()<maxWidth) sb.append(' ');//append space until equal to maxWidth
-            }else{//caculate space, make space insert evenely between words
-                int spaces = spaceCount / (wordCount-1); //wordCount-1 is number of margin
-                int extraSpaces = spaceCount % (wordCount -1);
-                for(int i=index; i<last; i++){//for each word
+                while (sb.length() < maxWidth) sb.append(' ');
+            } else {//normally, make sure space inserted evenly
+                //e.g. wordCount-1 of sections to insert spaces
+                int spaces = spaceCount / (wordCount - 1);// divide: evenly spaces
+                int extraSpaces = spaceCount % (wordCount - 1);// remainder: left spaces
+                for (int i = index; i < last; i++) {
                     sb.append(words[i]);
-                    if(i<last-1){//adding space except for last word
-                        for(int j=0; j<=(spaces+ (i-index < extraSpaces? 1:0));j++){//e.g. we have three margin and two extra spaces, we want to add it from left, with spaces base two, distribution of spaces should be 3,3,2
-                            sb.append(' ');
-                        }
+                    if (i < last - 1) {
+                        for (int j = 0; j <= (spaces + (i - index < extraSpaces ? 1 : 0)); j++) sb.append(' ');
                     }
                 }
             }
             result.add(sb.toString());
-            index=last;
-
+            index = last;// keep going
         }
         return result;
     }
-
-}
