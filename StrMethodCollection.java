@@ -17,11 +17,18 @@ public class StrMethodCollection {
     public static String subString(String s, int index) {
         if (s == null || index > s.length() - 1) return null;
 
-        char[] result = new char[s.length() - index];
+        char[] res = new char[s.length() - index];
         for (int i = index; i < s.length(); i++) {
-            result[s.length() - i] = charAt(s, i);
+            res[i-index] = charAt(s, i);
         }
-        return new String(result);//result.toString() return hash code.
+        return new String(res);
+    }
+    public static String subString(String s, int start, int end) {
+        char[] res= new char[end-start];
+        for(int i=start;i<end;i++){
+            res[i-start] = charAt(s,i);
+        }
+        return new String(res);
     }
 
     public static char charAt(String s, int index) {
