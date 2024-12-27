@@ -36,27 +36,39 @@
          
 class Solution {
   public TreeNode buildTree(int[] preorder, int[] inorder) {
-    return buildTree(preorder, inorder, 0, 0, inorder.length - 1);
-  }
-  private TreeNode buildTree(
-      int[] preorder, int[] inorder, int preIndex, int inStart, int inEnd) {
-    if (inStart > inEnd)
-      return null;
-    TreeNode root = new TreeNode(preorder[preIndex]);
-    int inIndex = inStart;
-
-    for (int i = inStart; i <= inEnd; i++) { //<=
-      if (inorder[i] == preorder[preIndex]) {
-        inIndex = i;
-        break;
-      }
+        return buildTree(preorder, inorder, 0, 0, inorder.length - 1);
     }
 
-    root.left =
-        buildTree(preorder, inorder, preIndex + 1, inStart, inIndex - 1);
-    root.right = buildTree(preorder, inorder, preIndex + inIndex - inStart + 1,
-        inIndex + 1, inEnd);
+    private TreeNode buildTree(int[] preorder, int[] inorder, int preIndex, int inStart, int inEnd) {
+        if (inStart > inEnd) return null;
 
-    return root;
-  }
+        TreeNode root = new TreeNode(preorder[preIndex]);
+
+        int inIndex = inStart;
+
+        //search root in inOrder array
+        for (int i = inStart; i <= inEnd; i++) {
+            if (inorder[i] == preorder[preIndex]) {
+                inIndex = i;
+                break;
+            }
+        }//once we got inIndex
+
+        // preIndex is index of root,
+        // case 1: left = preIndex+1
+        // case 2: right= preIndex + numOfLeft +1 =preIndex + (inIndex-inStart+1)
+        root.left = buildTree
+                (preorder,
+                        inorder,
+                        preIndex + 1,/*index of left node in preOrder array*/
+                        inStart,
+                        inIndex - 1);
+        root.right = buildTree
+                (preorder,
+                        inorder,
+                        preIndex + (inIndex - inStart + 1),/*index of right node in preOrder array*/
+                        inIndex + 1,
+                        inEnd);
+        return root;
+    }
 }
