@@ -1,4 +1,13 @@
 class Solution {
+    /*
+    Input: words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16
+    Output:
+    [
+       "This    is    an",
+       "example  of text",
+       "justification.  "
+    ]
+    */
     public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> result = new ArrayList<>();
         int n =words.length;
