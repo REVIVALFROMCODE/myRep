@@ -28,7 +28,8 @@ class Solution {
     }
 }
 
-//Solution 2, e.g. "'Start' ... 'dup' ... 'dup'", once we reach dup, we increment start, check if it is the 'dup' we are looking for, we check character rather whole string until we find the 'dup' and start a new round.
+//Solution 2, e.g. "'Start' ... 'dup' ... 'dup'", once we reach last dup, we increment start, check if it is the 'dup' we are looking for, 
+//we check character rather whole string until we find the 'dup' and start a new round which take n time
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         boolean[] m = new boolean[256];
