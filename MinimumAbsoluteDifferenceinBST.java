@@ -1,4 +1,51 @@
-class Solution {//530
+
+
+public class Solution {//530
+    Stack s=new Stack();
+
+    private class Stack{
+        int vals[];
+        int N;
+        Stack(){
+            vals=new int[10];
+        }
+        void resize(int sz){
+            int[] dup=new int[sz];
+            for(int i=0;i<vals.length;i++) dup[i]=vals[i];
+            vals=dup;
+        }
+        void push(int v){
+            if(N==vals.length) resize(2*N);
+            vals[N++]=v;
+        }
+        int pop(){
+            if(isEmpty()) return Integer.MAX_VALUE;
+            return vals[--N];
+        }
+        boolean isEmpty(){
+            return N==0;
+        }
+    }
+    public int getMinimumDifference(TreeNode root){
+        int min=Integer.MAX_VALUE;
+        inorder(root);
+        int v1 = s.pop();
+        while(!s.isEmpty()){
+            int v2 = s.pop();
+            min = Math.min(min, v1-v2);
+            v1=v2;
+        }
+        return min;
+    }
+    public void inorder(TreeNode root){
+        if(root==null) return;
+        inorder(root.left);
+        s.push(root.val);
+        inorder(root.right);
+    }
+}
+//Solution2 break standard stack, iterate internal array
+class Solution {
     stack s = new stack();
 
     private class stack{
@@ -12,8 +59,8 @@ class Solution {//530
             N=0;
         }
         void push(int v){
-            vals[N++] =v;
             if(N==vals.length) resize(2*N);
+            vals[N++] =v;
         }
         void resize(int len){
             int dup[] = new int[len];
@@ -32,7 +79,7 @@ class Solution {//530
     }
 
     public int getMinimumDifference(TreeNode root) {
-        int min = 999999;
+        int min = Integer.MAX_VALUE;
         if(root == null) return min;
         inOrderTraversal(root);
         int res[] = s.getArray();
@@ -53,7 +100,7 @@ class Solution {//530
 }
 
 
-//Solution 2
+//Solution3 No stack, calculate min during inorder
 class Solution {
     private TreeNode prev = null; // Integer used to store null so we used
     private int min = Integer.MAX_VALUE;
@@ -80,7 +127,7 @@ class Solution {
 }
 
 
-//Solution3
+//Solution4 Do not use global variable, instead we pass a structure
 class Solution {
     public int getMinimumDifference(TreeNode root) {
         int preMin[] = new int[2];
