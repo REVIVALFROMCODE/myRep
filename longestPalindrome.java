@@ -52,7 +52,7 @@ public class Solution {
             int len = Math.max(len1, len2);
             if (len > end - start) {
                 //how to deduce start and end from i and len?
-                //given array 0,1,2,3 i=2, len=3(sub 1,2,3); end=i+len/2, start=i-len/2 or i-(len-1)/2
+                //given array 0,1,2,3 i=2, len=3(sub 1,2,3); end=i.next=i+len/2, start=i-len/2 or i-(len-1)/2
                 //given array 0,1,2,3,4 i=2, len=4(sub 1,2,3,4); end=i+len/2, start=i-(len-1)/2
                 start = i - (len - 1) / 2;
                 end = i + len / 2;
