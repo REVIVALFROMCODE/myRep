@@ -52,3 +52,59 @@ class Solution {
         }
         return result;
     }
+
+
+
+
+public class Solution {
+    public static void main(String[] args) {
+        List<String> res = new Solution().fullJustify(new String[]{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"}, 20);
+        System.out.println(res);
+    }
+
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        List<String> res = new ArrayList<>();
+        int n = words.length;
+        for (int i = 0; i < n; i++) {//each round of for , we build a formated String
+            int charSum = words[i].length();
+            int wordCount = 1;
+            int startIndex = i;
+            //+1 for avoid charSum equal width without spaces
+            while (i + 1 < n && charSum + words[i + 1].length() + 1 <= maxWidth) {
+                charSum = charSum + words[++i].length() + 1;
+                wordCount++;
+            }
+            int endIndex = i;
+
+            StringBuilder sb = new StringBuilder();
+            int spaceCount = maxWidth - charSum;
+            //once words out of used, we in 'if'
+            //e.g. "shall be        "
+            //in 'else', above string misformat to "shall         be"
+            if (i == n - 1 || wordCount == 1) {
+                sb.append(words[startIndex]);
+                //<
+                for (int j = startIndex + 1; j <= endIndex; j++) {
+                    sb.append(' ').append(words[j]);
+                }
+                while (sb.length() < maxWidth) sb.append(' ');
+            } else {
+                int spaces = spaceCount / (wordCount - 1);
+                int extraSpaces = spaceCount % (wordCount - 1);
+                for (int j = startIndex; j <= endIndex; j++) {
+                    sb.append(words[j]);
+                    //two cases: 1.not the last one(insert word and corresponding spaces) 2.last one(insert nothing but word)
+                    if (j != endIndex) {
+                        //two cases here, remain extraSpaces(insert spaces+1), extraSpaces has used up(insert space)
+                        //use <=, because we have remained at least 1 space
+                        for (int k = 0; k <= (spaces + (j - startIndex < extraSpaces ? 1 : 0)); k++) sb.append(' ');
+                    }
+                }
+
+            }
+            res.add(sb.toString());
+
+        }
+        return res;
+    }
+}
