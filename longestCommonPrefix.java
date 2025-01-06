@@ -29,6 +29,7 @@ class Solution {
     }
 }
 /*example of implement indexOf*/
+//GOAL: find tgt in src.
 public static int indexOfLatin1Unsafe(byte[] src, int srcCount, byte[] tgt, int tgtCount, int fromIndex) {
         assert fromIndex >= 0;
         assert tgtCount > 0;
