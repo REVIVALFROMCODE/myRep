@@ -3,9 +3,9 @@ Input: nums = [100,4,200,1,3,2]
 Output: 4
 Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
 
-For example, the sequence starting with 19 is: 19 → 82 → 68 → 100 → 1
-
-If a number is unhappy, it enters a small cycle like: 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4
+GOAL: Find size of longest consecutive array in Array of integer.
+ALGO: Put everything in HashSet, for each Integer, check does Integer minus one exist. IF:go ahead recursively, len++; ELSE:NONE.
+DS:    Set<Integer>
 */
 class Solution {
     public int longestConsecutive(int[] nums) {
