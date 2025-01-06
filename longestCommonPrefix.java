@@ -1,3 +1,13 @@
+/*
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+GOAL: Find common prefix in group of Strings. Note: A valid common prefix is those strings must start with that subString. 
+        "cc" is not valid for "acc", because cc is not "prefix".
+ALGO: Iterate from second String, save first string as pre, 
+        Method indexOf(String) Returns the index within this string of the first occurrence of the specified substring
+        specified substring.
+        check by indexOf(pre) and start while loop. Shrink pre as long as indexOf(pre) is zero.  
+*/
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         if(strs.length==0 || strs[0].isEmpty()) return "";
