@@ -28,7 +28,34 @@ class Solution {
         return pre;
     }
 }
-
+/*example of implement indexOf*/
+public static int indexOfLatin1Unsafe(byte[] src, int srcCount, byte[] tgt, int tgtCount, int fromIndex) {
+        assert fromIndex >= 0;
+        assert tgtCount > 0;
+        assert tgtCount <= tgt.length;
+        assert srcCount >= tgtCount;
+        char first = (char)(tgt[0] & 0xff);
+        int max = (srcCount - tgtCount);
+        for (int i = fromIndex; i <= max; i++) {
+            // Look for first character.
+            if (getChar(src, i) != first) {//continue
+                while (++i <= max && getChar(src, i) != first);
+            }
+            // Found first character, now look at the rest of v2
+            if (i <= max) {
+                int j = i + 1;
+                int end = j + tgtCount - 1;
+                for (int k = 1;
+                     j < end && getChar(src, j) == (tgt[k] & 0xff);
+                     j++, k++);//increment k and j
+                if (j == end) {//result is only valid when j==end
+                    // Found whole string.
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 /*
 For the input ["flower", "flow", "flight"]:
 
