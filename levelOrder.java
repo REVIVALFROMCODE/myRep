@@ -1,3 +1,11 @@
+/*
+GOAL:    level orderly tranversal binary tree. 
+ALGO:    put root enqueue and start while loop until queue is empty, new Array according size of queue and start for loop interate queue, 
+         put each son Node enquue and add val in Array as one level. Put Array in res at the end of while loop.
+DS:      Queue<TreeNode> for saving candidate Nodes, as we traverse by size of queue, following Nodes will not be traverse wrongly.
+         List<List<Integer>> for saving result.
+         List<Integer> currentLevel for each round, 
+*/
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
