@@ -5,6 +5,7 @@ class Solution {
         s=trim(s);
         for(int i =s.length() -1 ; i>=0; i--){
             if(s.charAt(i) == ' '){
+                //" abc" len-i-1=4-0-1=3 
                 return s.length() - i -1 ;
             }
         }
