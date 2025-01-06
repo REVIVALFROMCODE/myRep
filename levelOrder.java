@@ -100,7 +100,10 @@ class Solution {
     }
 }
 
-
+/*
+ALGO: in each level, we locate associated Array by Array.get(level), and iterate Nodes recursively with param (int level)
+DS:         List<List<Integer>> result and we get Array by result.get(level)
+*/
 
 //Solution 3: Recursive call with parameters: int level
 public class Solution {
@@ -113,7 +116,7 @@ public class Solution {
     private void levelOrder(TreeNode node, int level, List<List<Integer>> result) {
         if (node == null) return;
 
-        // Ensure the list is large enough to hold the current level
+        // Ensure the list is large enough to hold the current level, result.get(level) do not exist.
         if (result.size() <= level) {
             result.add(new ArrayList<>());
         }
