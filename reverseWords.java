@@ -20,3 +20,23 @@ class Solution {
 Input: s = "a good   example"
 Output: "example good a"
 */
+
+//Solution2, regex pattern is slow
+class Solution {
+    public static String reverseWords(String s) {
+        StringBuilder res = new StringBuilder();
+        int end = s.length() - 1;
+
+        while (end >= 0) {
+            while (end >= 0 && s.charAt(end) == ' ') end--;
+            if (end < 0) break;
+            int start = end;
+            while (start-1 >= 0 && s.charAt(start-1) != ' ') start--;
+            res.append(s.substring(start, end + 1));
+            
+            res.append(" ");
+            end = start - 1;
+        }
+        return res.toString().trim();
+    }
+}
