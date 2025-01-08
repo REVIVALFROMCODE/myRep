@@ -1,13 +1,14 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+/*
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+
+we use pointer "cur" to track length of linked list
+
+here is a trick:
+trying to remove No.n node, move cur n steps from dummy, move cur until end of list, move newCur at the same time. 
+When cur point to null, newCur point to the previous node we want to delete. 
+Because compare with cur, newCur move less n steps. Just like newCur move backward from end of list.
+*/
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // Defensive code
