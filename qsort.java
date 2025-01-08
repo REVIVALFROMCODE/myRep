@@ -12,8 +12,8 @@ int partition(int[] a, int lo, int hi){
 	int j=hi+1;
 	int v=a[lo];
 	while(true){
-		while(a[i++]<=v) if(i==hi) break;
-		while(a[j--]>=v) if(j==lo) break;
+		while(a[++i]<=v) if(i==hi) break;
+		while(a[--j]>=v) if(j==lo) break;
 		if(i>=j) break;
 		exch(i,j);	
 	}
