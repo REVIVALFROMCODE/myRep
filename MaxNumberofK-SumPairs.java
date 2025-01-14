@@ -50,3 +50,25 @@ class Solution {
         return cnt;
     }
 }
+
+/*
+Solution II: HashMap takes time propostional to N, but it actually takes 41 ms than sort algorithm which takes 19ms.
+Because two pointers approach leads to better cache locality and fewer cache misses which can significantly speed up operation.
+And HashMap involves overhead of space usage and additional hashing, collisions, dynamic resizing etc of constant factors. Especially it doesn't use cache wisely.
+*/
+class Solution {
+    public int maxOperations(int[] nums, int k) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        int res = 0;
+        for (int num : nums) {
+            int complement = k - num;
+            if (countMap.getOrDefault(complement, 0) > 0) {
+                res++;
+                countMap.put(complement, countMap.get(complement) - 1);
+            } else {
+                countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+            }
+        }
+        return res;
+    }
+}
