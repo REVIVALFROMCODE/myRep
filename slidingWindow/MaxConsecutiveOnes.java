@@ -1,4 +1,35 @@
 /*
+        An intuitive puzzle: Find the length of the smallest subarray with a sum greater than or equal to s.
+        ALGO:Move right pointer adding entry of right to Sum,
+            once Sum greater than S, move left pointer to contract window
+
+        Why calculate minLength inside while?
+        Because only if Sum >= S, current length is valid result.
+        Why calculate minLength before left++?
+        Similar reason, after condition Sum >= S, length is valid, left++ pending on examine of condition.
+        
+     */
+    public static int minSubArrayLen(int S, int[] nums) {
+        int minLength = Integer.MAX_VALUE;
+        int windowSum = 0;
+        int left = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+            windowSum += nums[right];
+
+            while (windowSum >= S) {
+                minLength = Math.min(minLength, right - left + 1);
+                windowSum -= nums[left];
+                left++;
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+
+
+
+/*
 Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
 Output: 10
 Explanation: [0,0,(1,1,1,1,1,1,1,1,1,1),0,0,0,1,1,1,1]
