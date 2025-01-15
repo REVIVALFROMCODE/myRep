@@ -1,3 +1,4 @@
+class Solution{
     public static void main(String[] args) {
         new Solution();
     }
@@ -30,3 +31,4 @@
             int rightDepth = maxDepth(root.right);
             return Math.max(leftDepth, rightDepth) + 1;
         }
+}
