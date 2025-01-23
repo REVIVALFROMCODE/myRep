@@ -6,14 +6,14 @@ Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 /*
 start from first digit, we retrieve string according to final map.
 
-call recursively with i++ to next digit, pass StringBuilder to store intermittent result.
+call recursively with i++ to next digit, pass StringBuilder to store intermediate result.
 
 once i reach to length of digits, we store valid result in ArrayList.
 
 for each recursive call, we delete added digit after recursive call returned. That's how backstracking works.
 
 Ds: Input string digits/params
-StringBuilder for intermittent result
+StringBuilder for intermediate result
 List<String> for valid result
 */
 public class Solution {
