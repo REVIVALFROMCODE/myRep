@@ -44,7 +44,9 @@ class Solution {
         }
 
         prev.next = slow.next;
-
+        //Two special cases here:
+        // 2-> 1 return 2 (slow!=head return head) 
+        // 1 return null  (slow==head return prev.next)
         return  slow ==head ? prev.next:head;
     }
 }
