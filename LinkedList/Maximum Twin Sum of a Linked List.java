@@ -62,10 +62,10 @@ class Solution {
     public int pairSum(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        ListNode prev = null;
+        ListNode prev = null; //what you want is cut the half off, null(prev),1->2->3 to 3->2->1->null
         //Reverse the First Half
         while(fast!=null){
-            fast = fast.next.next;
+            fast = fast.next.next; // trace half
             ListNode tmp = slow.next; //store slow.next
             slow.next = prev; //when reversing list, prev is the next one of current slow
             prev = slow; //update prev as new next one
