@@ -19,6 +19,8 @@ class Solution {
             
             for doing this, 1.protect odd.next by cur.next = cur.next.next, 
             2.prev is referenced by cur
+
+            maintain structure last->cur->odd, after insert add between last and cur: last->odd->cur
             */
             cur.next=cur.next.next;
             odd.next = last.next;
