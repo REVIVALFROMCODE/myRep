@@ -54,3 +54,32 @@ class Solution {
         return maxSum;
     }
 }
+
+/*
+ Optimal solution: 
+ Reverse first half rather second half, that's avoid to find middle node.
+*/
+    public int pairSum(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null;
+        //Reverse the First Half
+        while(fast!=null){
+            fast = fast.next.next;
+            ListNode tmp = slow.next; //store slow.next
+            slow.next = prev; //when reversing list, prev is the next one of current slow
+            prev = slow; //update prev as new next one
+            slow = tmp; //new round
+        }
+        //As a result, list will be cut off. 4->2->2->3 to 2->4 and 2->3
+        int max=0;
+        while (slow!=null){
+            int currvValue = slow.val + prev.val;
+            if (currvValue>max){
+                max = currvValue;
+            }
+            slow = slow.next;
+            prev = prev.next;
+        }
+        return max;
+    }
