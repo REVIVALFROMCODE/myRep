@@ -22,8 +22,8 @@ class Solution {
     p: index of params
     k: input
     n: input
-    sum: intermittent sum
-    nums: intermittent res
+    sum: intermidiate sum
+    nums: intermidiate res
     */
     List<List<Integer>> backTrack(int i, int p, int k, int n, int sum, int[] nums, List<List<Integer>> res) {
         if (sum > n)
