@@ -91,7 +91,7 @@ class SmallestInfiniteSet {
 
 
 /*
-Solution2: Eliminate HashSet for optamize performance. 
+Solution2: Eliminate HashSet for optimize performance. 
 We do not add i++ back to pq, but only track i as current. For each pop operation, we compare min(pq.poll(),current)
 addBack is allowed only if num is smaller than current i, and pq not contains num.
 */
