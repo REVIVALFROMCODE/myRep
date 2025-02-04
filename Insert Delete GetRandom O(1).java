@@ -72,9 +72,10 @@ public class RandomizedSet {
             return false;
         }
         int loc = locs.get(val);
-        if (loc < nums.size() - 1) { // not the last one than swap the last one with this val
+        if (loc != nums.size() - 1) { // not the last one than swap the last one with this val '!=' is fater than '<'
             int lastone = nums.get(nums.size() - 1);
             nums.set(loc, lastone);
+            //nums.set(nums.size() - 1, val); //is not necessary, as we are going to remove last one.
             locs.put(lastone, loc);
         }
         locs.remove(val);
