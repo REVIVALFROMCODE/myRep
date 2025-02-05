@@ -12,4 +12,5 @@ Example: Two users trying to book the last seat on a flight at the same time; bo
 BLOB
 
 [For a table with several columns, to reduce memory requirements for queries that do not use the BLOB column, consider splitting the BLOB column into a separate table and referencing it with a join query when needed.](https://dev.mysql.com/doc/refman/8.0/en/optimize-blob.html)
-
+awioajifjw
+D7WVE7Hz5kEIiBgRw9ndCDVAAUhiNgaCxSyipVCqR5jzPdMY42tYJQQJ99BBBCYeBjFXJ3w3AAABACOGqSih
