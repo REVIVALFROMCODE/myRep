@@ -83,9 +83,9 @@ public class Solution {
         }
     }
     public void InsertionSort(int[] a) {
-        for (int i = 1; i < a.length; i++) {
-            while (i - 1 >= 0 && a[i - 1] > a[i]) {
-                exch(a, i - 1, i--);
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j > 0 && a[j]<a[j-1]; j--) {
+                exch(a, j, j-1);
             }
         }
     }
@@ -127,3 +127,11 @@ class Solution {
         return ans;
     }
 }
+/*
+What Happens if You Remove Duplicates After Sorting
+Loss of Valid Triplets:
+Any triplet that depends on duplicate elements will no longer be found.
+Input: nums = [-1, -1, 0, 1, 2]
+After removing duplicates: nums = [-1, 0, 1, 2]
+The valid triplet [-1, -1, 2] is lost.
+*/
