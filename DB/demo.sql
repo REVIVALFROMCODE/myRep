@@ -1,3 +1,4 @@
 SHOW DATABASES;
-
+CREATE DATABASE DEMO;
+USE DEMO;
 GRANT ALL PRIVILEGES ON database_name.* TO admin@localhost;
