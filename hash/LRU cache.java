@@ -40,63 +40,51 @@ public class LRUCache {
     }
 
     // Retrieve value from cache by key
-    public int get(int key) {
+    public int get(int key){
         DLinkedNode node = cache.get(key);
-        if (node == null) {
-            return -1; // Return -1 if key doesn't exist
+        if(node!=null){
+            moveForward(node);
+            return node.value;
+        }else {
+            return -1;
         }
-        // Move the accessed node to the head (most recently used)
-        moveToHead(node);
-        return node.value;
     }
-
     // Insert or update a key-value pair in the cache
-    public void put(int key, int value) {
+    public void put(int key,int value){
         DLinkedNode node = cache.get(key);
-        if (node == null) {
-            // Create a new node if key doesn't exist
-            DLinkedNode newNode = new DLinkedNode(key, value);
-            cache.put(key, newNode); // Add to hash map
-            addToHead(newNode); // Add to the head of the list
-            ++size;
-            if (size > capacity) {
-                // If cache exceeds capacity, remove the tail node (least recently used)
-                DLinkedNode tail = removeTail();
-                cache.remove(tail.key); // Remove from hash map
-                --size;
+        if(node!=null){
+            node.value=value;
+            moveForward(node);
+        }else{
+            node=new DLinkedNode(key,value);
+            cache.put(key,node);
+            addAsHead(node);
+            if(++size > capacity){
+                int tailKey = removeTail();
+                //We need key for remove tail from cache, with O(1) time. So we have to reserve key in node.
+                cache.remove(tailKey);
+                size--;
             }
-        } else {
-            // Update the value of the existing node and move it to the head
-            node.value = value;
-            moveToHead(node);
         }
     }
-
-    // Add a node to the head of the linked list
-    private void addToHead(DLinkedNode node) {
-        node.prev = head;
-        node.next = head.next;
-        head.next.prev = node;
-        head.next = node;
-    }
-
-    // Remove a node from the linked list
-    private void removeNode(DLinkedNode node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-    }
-
-    // Move a node to the head of the linked list
-    private void moveToHead(DLinkedNode node) {
+    public void moveForward(DLinkedNode node){
         removeNode(node);
-        addToHead(node);
+        addAsHead(node);
     }
-
-    // Remove the tail node from the linked list and return it
-    private DLinkedNode removeTail() {
-        DLinkedNode res = tail.prev;
-        removeNode(res);
-        return res;
+    public void removeNode(DLinkedNode node){
+        node.prev.next=node.next;
+        node.next.prev=node.prev;
+    }
+    public void addAsHead(DLinkedNode node){
+        node.next=head.next;
+        head.next=node;
+        node.prev=head;
+        node.next.prev=node;
+    }
+    public int removeTail(){
+        int key = tail.prev.key;
+        removeNode(tail.prev);
+        return key;
     }
 }
 
