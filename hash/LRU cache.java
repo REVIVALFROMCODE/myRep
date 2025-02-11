@@ -7,7 +7,7 @@ The functions get and put must each run in O(1) average time complexity.
 
 /*
 Solution1 implement dual linked list.
-
+https://www.romaglushko.com/blog/design-lru-cache/
 Hashmaps allow to read and write key-value pairs in constant time with high probability.
 
 The problem with dictionaries is that they usually don’t guarantee order in which they manage keys. 
