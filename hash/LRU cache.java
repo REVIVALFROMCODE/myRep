@@ -8,6 +8,12 @@ The functions get and put must each run in O(1) average time complexity.
 /*
 Solution1 implement dual linked list.
 
+Hashmaps allow to read and write key-value pairs in constant time with high probability.
+
+The problem with dictionaries is that they usually don’t guarantee order in which they manage keys. 
+
+So we don’t have a way to quickly remove least-recently-used items. 
+
 To implement least recently used cache, move element behind dummy after each get/set.
 To move element behind dummy, we remove it then put it behind dummy.
 */
