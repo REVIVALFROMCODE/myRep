@@ -14,6 +14,10 @@ The problem with dictionaries is that they usually don’t guarantee order in wh
 
 So we don’t have a way to quickly remove least-recently-used items. 
 
+With linked lists, we could keep track of item usages in constant time. 
+
+We could simply move the item which is least accessed to the top of the list.
+
 To implement least recently used cache, move element behind dummy after each get/set.
 To move element behind dummy, we remove it then put it behind dummy.
 */
