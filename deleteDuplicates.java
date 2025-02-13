@@ -34,3 +34,19 @@ class Solution {
         return dummy.next;
     }
 }
+
+//Solution2: more intuitive mathmatics way.
+//lsum + rsum + nums[i] = total -> lookng for lsum equals to rsum, then if(total - nums[i]) ==2*sum, return i;
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int total = Arrays.stream(nums).sum();
+        int sum = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (2 * sum + nums[i] == total) {
+                return i;
+            }
+            sum += nums[i];
+        }
+        return -1;
+    }
+}
