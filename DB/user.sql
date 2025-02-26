@@ -7,6 +7,7 @@ CREATE TABLE `user` (
   `phone` VARCHAR(20) UNIQUE,
   `vip_level` TINYINT UNSIGNED DEFAULT 0 NOT NULL,
   `vip_expiry_date` DATETIME DEFAULT NULL,
+  `free_vip_uses` INT DEFAULT 0 NOT NULL,
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` ENUM('active', 'suspended', 'deleted') DEFAULT 'active' NOT NULL
