@@ -1,5 +1,6 @@
 CREATE TABLE `user` (
   `user_id` INT AUTO_INCREMENT PRIMARY KEY,
+  `open_id` INT NOT NULL,
   `user_name` VARCHAR(50) NOT NULL UNIQUE,
   `password_hash` VARCHAR(255) NOT NULL,
   `salt` VARCHAR(64) NOT NULL,
