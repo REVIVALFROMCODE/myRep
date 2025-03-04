@@ -27,8 +27,24 @@ url: 'example.php', //仅为示例，并非真实的接口地址
 
 https://developers.weixin.qq.com/miniprogram/dev/api/
 
+1.Access token
 
-1.小程序登录
+https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html
+
+``GET https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET``
+
+````
+Request parameters
+String appid;  //config
+String secret;  //config
+String grant_type	= "client_credential";  //final
+
+Response example
+{"access_token":"ACCESS_TOKEN",
+"expires_in":7200}
+````
+
+2.小程序登录
 
 https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/user-login/code2Session.html
 
@@ -62,7 +78,7 @@ Error code
 -1	系统繁忙，此时请开发者稍候再试
 ````
 
-2.map openid与session_key, return 3rd party session token to front end. 
+map openid与session_key, return 3rd party session token to front end. 
 Map <K,V> <token,openid + session_key> in server.
 Following all request and response between frontend and backend with corresponding token.
 
