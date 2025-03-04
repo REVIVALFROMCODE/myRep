@@ -62,5 +62,5 @@ Error code
 -1	系统繁忙，此时请开发者稍候再试
 ````
 
-
+2.map openid与session_key, return custom token to front end.
 
