@@ -64,4 +64,5 @@ Error code
 
 2.map openid与session_key, return 3rd party session token to front end. 
 Map <K,V> <token,openid + session_key> in server.
+Following all request and response between frontend and backend with corresponding token.
 
