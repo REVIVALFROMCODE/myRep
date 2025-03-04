@@ -78,7 +78,7 @@ Error code
 -1	系统繁忙，此时请开发者稍候再试
 ````
 
-map openid与session_key, return 3rd party session token to front end. 
+Associate openid and session_key, return 3rd party self generated session token to frontend. 
 Map <K,V> <token,openid + session_key> in server.
 Following all request and response between frontend and backend with corresponding token.
 
