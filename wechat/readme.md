@@ -48,9 +48,9 @@ String grant_type	= "authorization_code";//final
 
 Response example
 {
-"openid":"xxxxxx",
-"session_key":"xxxxx",
-"unionid":"xxxxx",
+"openid":"xxxxxx",//用户唯一标识
+"session_key":"xxxxx",//会话密钥
+"unionid":"xxxxx",//用户在开放平台的唯一标识符，若当前小程序已绑定到微信开放平台账号下会返回
 "errcode":0,
 "errmsg":"xxxxx"
 }
