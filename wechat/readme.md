@@ -62,5 +62,6 @@ Error code
 -1	系统繁忙，此时请开发者稍候再试
 ````
 
-2.map openid与session_key, return custom token to front end.
+2.map openid与session_key, return 3rd party session token to front end. 
+Map <K,V> <token,openid + session_key> in server.
 
