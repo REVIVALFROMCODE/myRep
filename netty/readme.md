@@ -9,3 +9,13 @@ https://github.com/REVIVALFROMCODE/myRep/blob/main/netty/async.java
 ````
 blank
 ````
+Reactor
+https://www.cnblogs.com/crazymakercircle/p/9833847.html
+
+Connection per thread
+
+https://github.com/REVIVALFROMCODE/myRep/blob/main/netty/perThread.java
+
+Single thread reactor
+
+
