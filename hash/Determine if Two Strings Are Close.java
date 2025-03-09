@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
 Input: word1 = "cabbba", word2 = "abbccc"
 Output: true

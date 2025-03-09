@@ -1,4 +1,4 @@
-package org.PQ;
+package pq;
 /*
 Key must be comparable
  */

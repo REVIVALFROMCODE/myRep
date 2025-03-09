@@ -1,4 +1,4 @@
-package org.PQ;
+package pq;
 /*
 <T extends Comparable<T>> : parameter T implements Comparable
 implements Comparable<Key<T>> : Key<T> implements Comparable

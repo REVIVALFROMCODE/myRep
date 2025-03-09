@@ -1,4 +1,4 @@
-package org.PQ;
+package pq;
 
 /*
 Based on complete binary tree,level order traversal of tree is sorted order

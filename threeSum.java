@@ -1,9 +1,14 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /*
 Solution brute force, following cannot avoid duplicate as expected.
 Input: nums = [-1,0,1,2,-1,-4], Out:[[-1,0,1],[-1,2],[0,-1,1]]
 Expected: [[-1,-1,2],[-1,0,1]]
 */
-class Solution {
+class threeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         int N = nums.length;
         List<List<Integer>> res= new ArrayList<>();
@@ -28,7 +33,7 @@ class Solution {
 Available brute force, By using a Set of lists, we avoid adding duplicate triplets. Each triplet is *sorted* before adding to the set to ensure the order is consistent.
 Set<List<Integer>> will consider [0,1,-1],[-1,0,1] as no dup/ But after sorting, will consider [-1,0,1] as dup.
 */
-public class Solution {
+class threeSum2 {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> res = new HashSet<>(); // To avoid duplicates
 
@@ -36,7 +41,7 @@ public class Solution {
             for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> triplet = Arrays.asList(nums[i],nums[j],nums[k]);
+                        List<Integer> triplet = java.util.Arrays.asList(nums[i],nums[j],nums[k]);
                         triplet.sort(null); // Ensure the triplet is in a consistent order
                         res.add(triplet);
                     }
@@ -54,14 +59,14 @@ Thrid try brute force, self implement insertion sort. Still Time Limit Exceeded.
 */
 
 
-public class Solution {
+class threeSum3 {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> res = new HashSet<>(); // To avoid duplicates
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], nums[k]);
+                        List<Integer> triplet = java.util.Arrays.asList(nums[i], nums[j], nums[k]);
                         insertionSort(triplet); // Ensure the triplet is in a consistent order
                         res.add(triplet);
                     }
@@ -99,9 +104,9 @@ public class Solution {
 
 //Solution 4: Two pointers 
 
-class Solution {
+class threeSum4 {
     public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
+        java.util.Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<>();
         int n = nums.length;
         for (int i = 0; i < n - 2; i++) {

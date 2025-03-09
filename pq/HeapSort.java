@@ -1,15 +1,18 @@
-public static void heapSort(Comparable[] a){
-  int N = a .length;
-  //Sinking the first N/2 elements in reverse order (elements other than leaf nodes)， as a result, we heaplify given array
-  for(int k =N/2; k>=1; k--){
-    sink(a,k,N);//iterate by k, N is boundry
+package pq;
+
+public class HeapSort{
+  public static void sort(Comparable[] a){
+    int N = a .length;
+    //Sinking the first N/2 elements in reverse order (elements other than leaf nodes)， as a result, we heaplify given array
+    for(int k =N/2; k>=1; k--){
+      sink(a,k,N);//iterate by k, N is boundry
+    }
+    //pop root(the smallest or the biggest one), insert last node back to heap and sink.
+    while(N>1){
+      exch(a,1,N--);//put root at the end of heap(end of array), then pop element by decrement N(as entry N alreay in right postion)
+      sink(a,1,N);
+    }
   }
-  //pop root(the smallest or the biggest one), insert last node back to heap and sink. 
-  while(N>1){
-    exch(a,1,N--);//put root at the end of heap(end of array), then pop element by decrement N(as entry N alreay in right postion)
-    sink(a,1,N);
-  }
-}
 
 /*
   intput: 6,4,3,5,1,2
@@ -32,3 +35,5 @@ Tree:
 3  2  1
 Conclusion: min Heap sort array by decrement order, max heap sort array by increment order.
 */
+
+}

@@ -14,6 +14,8 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.
  
 */
 
+import java.util.Arrays;
+
 /*
 GOAL: Find the number of all pairs of Integers that sum up to k in Array nums.
 ALGO: Sort the array, then we are able to faciliate(Or you can say we convert new issue to well-known one) algorithm with two pointers pattern(sum<k i++, sum>k j--, else return(i,j)). 

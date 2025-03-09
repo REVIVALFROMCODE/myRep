@@ -14,7 +14,7 @@ sorted in increasing order, 0,1,3,5,6 , consider '1', there are n-i = 5-1 = 4(be
 
 return 3
 */
-public class Solution {
+public class HIndex {
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
         int n = citations.length;
