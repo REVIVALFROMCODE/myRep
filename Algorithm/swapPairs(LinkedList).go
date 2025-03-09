@@ -14,7 +14,7 @@ func swapPairs(head *ListNode) *ListNode { //24
 //1st and 2nd is universal to all linkedList puzzles.3nd is particular in this puzzle.
 //Explain 1st:If you directly use head,even you have cur or temp,after one loop, your head is second node,not first node,
 //you just lost first node with no excuse.
-//Explain 2nd:There is two conditions,odd numbers or evem numbers in List.
+//Explain 2nd:There is two conditions,odd numbers or evem numbers in list.
 //Without dummyHead,your cur must point on first node that you want swap.
 //Therefore,you may find two conditions can not conduct in only one statement in you loop condition.
 //e.g. odds numbers:cur is valid,cur.Next is nil.The loop should be break. even numbers:cur is nil.The loop should be break.

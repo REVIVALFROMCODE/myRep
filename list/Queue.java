@@ -1,4 +1,4 @@
-package org.Queue;
+package list;
 
 import java.util.Iterator;
 import java.util.Spliterator;
