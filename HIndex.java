@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
 Input: citations = [3,0,6,1,5]
 Output: 3
