@@ -11,9 +11,7 @@ public class TestScanner {
                 curInt = scanner.nextInt();
                 System.out.println(curInt);
             } catch (InputMismatchException e) {
-                
                 //next Int throw InputMismatchException, we catch it then program continue.
-                //If it were a checked exception, like IOException, then the method would need to declare throw explicitly on signature if doesn't catch, enforced by the compiler.
                 System.out.println("Wrong input, continue.");
               //Consume invalid input, otherwise -> dead loop.
                 scanner.next();
@@ -21,3 +19,5 @@ public class TestScanner {
         }
     }
 }
+//If it were a checked exception, like IOException, then the method would need to declare throw explicitly on signature if doesn't catch, enforced by the compiler.
+//If you use Exception which too general and close to the top of throwable hierarchy. Causing other exception details be 
