@@ -1,5 +1,3 @@
-
-
 public class Solution {//530
     Stack s=new Stack();
 
