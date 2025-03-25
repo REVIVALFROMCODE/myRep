@@ -44,3 +44,29 @@ class Solution {
         return -1;
     }
 }
+
+
+
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        if(nums.length==1) return 0;
+        int l = 0;
+        int r = 1;
+        int suml = 0;
+        int sumr = 0;
+//precondition: l=0 r=1 suml=0; sumr=sum-nums[0];
+        for (int i = 1; i < nums.length; i++)
+            sumr += nums[i];
+        while (r < nums.length) {
+            if (suml == sumr)
+                return l;
+            suml += nums[l++];
+            sumr -= nums[r++];
+            if (suml == sumr)
+                return l;
+        }
+        //postcondition: l=nums.length-1, r=nums.length
+        return -1;
+    }
+}
