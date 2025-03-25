@@ -34,7 +34,6 @@ class Solution {
         int furthest = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             furthest = Math.max(furthest, i + nums[i]);
-            //update currentEnd when you have traversed all the indices within its range,
             if (i == currentEnd) {
                 jumps++;
                 currentEnd = furthest;
@@ -44,3 +43,17 @@ class Solution {
         return jumps;
     }
 }
+/**
+ * currentEnd represents the farthest point that can be reached using the current number of jumps. It defines the range of indices you can explore before needing another jump.
+
+As you iterate through the array:
+
+At each index i, you calculate the farthest point that can be reached (via farthest = max(farthest, i + nums[i])).
+You keep moving forward, exploring indices within the range defined by the current currentEnd.
+When do you update currentEnd?
+
+Once the iteration has reached currentEnd (i.e., i == currentEnd), it means you have explored all possible indices within the current range, and it is time to "make a jump" to extend your range.
+At that point, update currentEnd to the value of farthest, which represents the farthest index you can potentially reach in the next jump.
+By updating currentEnd at this point, you're essentially committing to making the next jump and expanding the range.
+ * 
+ */
