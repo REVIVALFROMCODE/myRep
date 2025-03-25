@@ -34,6 +34,7 @@ class Solution {
         int furthest = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             furthest = Math.max(furthest, i + nums[i]);
+            //update currentEnd when you have traversed all the indices within its range,
             if (i == currentEnd) {
                 jumps++;
                 currentEnd = furthest;
