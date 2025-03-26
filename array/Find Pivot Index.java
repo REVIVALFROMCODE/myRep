@@ -25,39 +25,41 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 //GOAL find pivot index which sumL equal sumR. 
 //ALGO start from index zero, which sumL=0, sumR=sum-nums[0], note that edge cases is important. Increment L and decrement R.
 class Solution {
-    //O(N)
+    // O(N)
     public int pivotIndex(int[] nums) {
-        int l=-1; int r=1;
-        int suml=0; int sumr=0;
+        int l = -1;
+        int r = 1;
+        int suml = 0;
+        int sumr = 0;
 
-        for(int i=1;i<nums.length;i++) sumr+=nums[i];
+        for (int i = 1; i < nums.length; i++)
+            sumr += nums[i];
 
-        while(r<=nums.length){
-            if(suml==sumr && r-l-1==1){
-                return l+1;
+        while (r <= nums.length) {
+            if (suml == sumr && r - l - 1 == 1) {
+                return l + 1;
             }
-            if(r==nums.length) return -1;
-            suml+=nums[++l];
-            sumr-=nums[r++];
-            
+            if (r == nums.length)
+                return -1;
+            suml += nums[++l];
+            sumr -= nums[r++];
+
         }
         return -1;
     }
 }
 
-
-
-
 class Solution {
     public int pivotIndex(int[] nums) {
-        if(nums.length==1) return 0;
+        if (nums.length == 1)
+            return 0;
         int l = 0;
         int r = 1;
         int suml = 0;
         int sumr = 0;
-//precondition: l=0 r=1 suml=0; sumr=sum-nums[0];
         for (int i = 1; i < nums.length; i++)
             sumr += nums[i];
+        // precondition: l=0 r=1 suml=0; sumr=sum-nums[0];
         while (r < nums.length) {
             if (suml == sumr)
                 return l;
@@ -66,7 +68,7 @@ class Solution {
             if (suml == sumr)
                 return l;
         }
-        //postcondition: l=nums.length-1, r=nums.length
+        // postcondition: l=nums.length-1, r=nums.length
         return -1;
     }
 }
