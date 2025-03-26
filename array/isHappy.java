@@ -14,7 +14,7 @@ If a number is unhappy, it enters a small cycle like: 4 → 16 → 37 → 58 →
 class Solution {
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();
-        while (n != 1 && !seen.contains(n)) {//If the number reappears in the set, it means we're in a cycle
+        while (n != 1 && !seen.contains(n)) {// If the number reappears in the set, it means we're in a cycle
             seen.add(n);
             n = getNext(n);
         }
@@ -23,11 +23,11 @@ class Solution {
 
     private int getNext(int n) {
         int totalSum = 0;
-        while (n > 0) {//if input is 19, second turn 1>0
-            int digit = n % 10;//digit = 9, digit = 1
-            n = n / 10;//n=1, n=0
-            totalSum += digit * digit;//9*9, 1*1
+        while (n > 0) {// if input is 19, two round: 9 and 1.
+            int digit = n % 10;// digit = 9, digit = 1
+            n = n / 10;// n=1, n=0
+            totalSum += digit * digit;// 9*9, 1*1
         }
-        return totalSum;//input 19, totalSum= 1^2 + 9^2 = 82
+        return totalSum;// input 19, totalSum= 1^2 + 9^2 = 82
     }
 }
