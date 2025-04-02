@@ -17,7 +17,7 @@ class Solution {
         return slow;
     }
 
-    // Function to reverse the linked list
+    // Function to reverse the linked list, after reverse, 4->2->2->3 divide into 4->2 and 2->3, then we compare 4+2 and 2+3
     private static ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
