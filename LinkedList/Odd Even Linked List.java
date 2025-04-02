@@ -10,15 +10,16 @@ You must solve the problem in O(1) extra space complexity and O(n) time complexi
  
 Input: head = [2,1,3,5,6,4,7]
 Output: [2,3,6,7,1,5,4]
+Split even and odd to two groups node by node.
 */
 class Solution {
     public ListNode oddEvenList(ListNode head) {
          
         if (head==null || head.next==null) return head;
 
-        ListNode last = head;     
-        ListNode cur = last.next;    
-        ListNode odd = cur.next;
+        ListNode last = head;     //last node of odd group
+        ListNode cur = last.next;    //next node of last odd node is an even node.
+        ListNode odd = cur.next;  //next node of cur node is an odd node. Your goal is insert this node behind last node.
         while (cur!=null && cur.next!=null){
             odd = cur.next;
             /*
