@@ -41,3 +41,4 @@ class Solution {
         return head;
     }
 }
+//it is not actually swapping two nodes... but insert odd (cur.next) after last;
