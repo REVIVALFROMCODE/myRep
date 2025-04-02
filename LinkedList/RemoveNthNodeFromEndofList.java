@@ -16,7 +16,7 @@ class Solution {
             return null;
 
         ListNode dummy = new ListNode(0, head);
-        ListNode cur = dummy;
+        ListNode cur = head;
         for (int i = 0; i < n; i++) {
             cur = cur.next;
         }
