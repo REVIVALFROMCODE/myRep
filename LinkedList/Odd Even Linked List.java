@@ -21,7 +21,7 @@ class Solution {
         ListNode cur = last.next;    //next node of last odd node is an even node.
         ListNode odd = cur.next;  //next node of cur node is an odd node. Your goal is insert this node behind last node.
         while (cur!=null && cur.next!=null){
-            odd = cur.next;
+            odd = cur.next;//next odd is cur.next
             /*
             what you only need to concern is the last odd node ,
             each round you put new odd behind last odd, then update last odd.
@@ -35,9 +35,10 @@ class Solution {
             cur.next=cur.next.next;
             odd.next = last.next;
             last.next = odd;
-            last=odd;
+            last=odd;//the new last node is last.next/odd
 
-            cur=cur.next;
+            cur=cur.next;//next even node is next node
+         //odd -> even -> odd -> even
         }
         return head;
     }
