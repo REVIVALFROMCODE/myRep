@@ -7,6 +7,7 @@
  * ListNode(int val) { this.val = val; }
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
+ Remove Duplicates from Sorted List II.
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
