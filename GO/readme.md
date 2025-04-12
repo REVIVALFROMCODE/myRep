@@ -26,3 +26,10 @@ replace example.com/greetings => ../greetings
 require example.com/greetings v0.0.0-00010101000000-000000000000
 ```
 
+At the command prompt in the hello directory, run your code to confirm that it works.
+
+```
+$ go run .
+Hi, Gladys. Welcome!
+```
+
